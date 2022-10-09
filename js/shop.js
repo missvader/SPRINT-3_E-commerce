@@ -88,8 +88,18 @@ function cleanCart() {
 }
 
 // Exercise 3
+//create empty array to add prices value
+let subTotal = [];
 function calculateTotal() {
     // Calculate total price of the cart using the "cartList" array
+    //iterate cartList array and push price to subTotal array
+    for(i=0; i < cartList.length; i++){
+        subTotal.push(cartList[i].price);
+    }
+    //iterate subTotal array to sum prices
+    for(i=0; i < subTotal.length; i++){
+        total += subTotal[i];
+    }
 }
 
 // Exercise 4
