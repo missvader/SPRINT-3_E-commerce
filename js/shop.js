@@ -93,7 +93,14 @@ function count(){
 }*/
 // Exercise 2
 function cleanCart() {
-    cartList.length = 0;
+    //cartList.length = 0;
+    //in order to refactor...
+    cart.length = 0;
+    countProducts = 0;
+    //get DOM elements of shopping cart
+    document.getElementById("total_price").innerHTML = 0;
+    document.getElementById("cart_list").innerHTML = "";
+    document.getElementById("count_product").innerHTML = 0;
 }
 
 // Exercise 3
