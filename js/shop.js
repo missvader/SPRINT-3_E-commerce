@@ -72,7 +72,7 @@ let cart = [];
 let total = 0;
 
 // Exercise 1
-function buy(id) {
+/*function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
     products.forEach(product =>{
@@ -82,7 +82,7 @@ function buy(id) {
     })
     calculateTotal();
     generateCart();
-}
+}*/
 // Exercise 2
 function cleanCart() {
     cartList.length = 0;
@@ -104,7 +104,7 @@ function calculateTotal() {
 }
 
 // Exercise 4
-function generateCart() {
+/*function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
     for(let i=0; i < cartList.length; i++){
@@ -122,7 +122,7 @@ function generateCart() {
         }
     }
     applyPromotionsCart();
-}
+}*/
 
 // Exercise 5
 function applyPromotionsCart() {
@@ -171,6 +171,24 @@ function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+    products.forEach(item =>{
+        if(item.id === id){
+            if(!cart.includes(item)){
+                item.quantity = 1;
+                item.subTotal = item.price;
+                item.subtotalWithDiscount = item.subTotal;
+                cart.push(item);
+            }else{
+                for(let i= 0; i<cart.length;i++){
+                    if(item.id === cart[i].id){
+                        cart[i].quantity++;
+                        cart[i].subTotal += cart[i].price;
+                    }
+                }
+            }
+        }
+        applyPromotionsCart();
+    })
 }
 
 // Exercise 9
