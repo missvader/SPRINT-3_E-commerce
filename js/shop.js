@@ -226,6 +226,5 @@ function removeFromCart(id) {
 }
 
 function open_modal(){
-	console.log("Open Modal");
 	printCart();
 }
