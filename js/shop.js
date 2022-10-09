@@ -70,6 +70,14 @@ let cartList = [];
 let cart = [];
 
 let total = 0;
+//product counter function
+function count(){
+    let countProducts = 0;
+    for(let i=0; i<cart.length; i++){
+        countProducts += cart[i].quantity;
+    }
+    document.getElementById("count_product").innerHTML = countProducts;
+}
 
 // Exercise 1
 /*function buy(id) {
@@ -187,6 +195,7 @@ function addToCart(id) {
                 }
             }
         }
+        count();
         applyPromotionsCart();
     })
 }
