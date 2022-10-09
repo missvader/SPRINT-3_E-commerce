@@ -172,6 +172,7 @@ function printCart() {
         <td>${price}</td>
         <td>${quantity}</td>
         <td>${totalWithDiscount}</td>
+        <td><button class='btn btn-sm rounded btn-danger' onclick='removeFromCart(${cart[i].id})'> - </td>
         </tr>`
         total += totalWithDiscount;
         document.getElementById("total_price").innerHTML = total;
@@ -209,12 +210,22 @@ function addToCart(id) {
 
 // Exercise 9
 function removeFromCart(id) {
-    // 1. Loop for to the array products to get the item to add to cart
-    // 2. Add found product to the cartList array
+    // 1. Loop for to the array cart to get the item to remove from cart
+    // 2. Remove found product to the cart array (using splice() method it removes item at index you want)
+    for(let product of cart){
+        if(product.id === id){
+            product.quantity--;
+            product.subTotal = product.quantity * product.price;
+        }else{
+            cart.splice(cart.indexOf(product),1);
+        }
+        applyPromotionsCart();
+        count();
+        printCart();
+    }
 }
 
 function open_modal(){
 	console.log("Open Modal");
 	printCart();
-    console.log(cart);
 }
